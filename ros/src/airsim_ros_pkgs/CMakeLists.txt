@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 4.1)
 project(airsim_ros_pkgs)
 
 # set this to path to AirSim root folder if you want your catkin workspace in a custom directory

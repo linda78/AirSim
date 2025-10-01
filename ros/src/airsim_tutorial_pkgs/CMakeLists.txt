@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 4.1)
 project(airsim_tutorial_pkgs)
 
 # todo eigen3 in AirLib already
