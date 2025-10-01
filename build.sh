@@ -60,8 +60,10 @@ if [ "$(uname)" == "Darwin" ]; then
     #export CC=/usr/local/opt/llvm@8/bin/clang
     #export CXX=/usr/local/opt/llvm@8/bin/clang++
     #now pick up whatever setup.sh installs
-    export CC="$(brew --prefix)/opt/llvm/bin/clang"
-    export CXX="$(brew --prefix)/opt/llvm/bin/clang++"
+#    export CC="$(brew --prefix)/opt/llvm/bin/clang"
+#    export CXX="$(brew --prefix)/opt/llvm/bin/clang++"
+    export CC=/usr/bin/clang
+    export CXX=/usr/bin/clang++
 else
     if $gcc; then
         export CC="gcc-8"
@@ -97,7 +99,9 @@ fi
 # Fix for Unreal/Unity using x86_64 (Rosetta) on Apple Silicon hardware.
 CMAKE_VARS=
 if [ "$(uname)" == "Darwin" ]; then
-    CMAKE_VARS="-DCMAKE_APPLE_SILICON_PROCESSOR=x86_64"
+#    CMAKE_VARS="-DCMAKE_APPLE_SILICON_PROCESSOR=x86_64"
+    # new generation mac (M1, M2 ...) will not longer work with x86 arch. use arm instead
+    CMAKE_VARS="-DCMAKE_APPLE_SILICON_PROCESSOR=armv7,armv7s"
 fi
 
 pushd $build_dir  >/dev/null
