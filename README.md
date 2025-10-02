@@ -38,8 +38,30 @@ Cars in AirSim
 * [Build it](https://microsoft.github.io/AirSim/build_linux)
 
 ### macOS
-[![Build Status](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml/badge.svg)](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml)
-* [Build it](https://microsoft.github.io/AirSim/build_macos)
+~~[![Build Status](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml/badge.svg)](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml)~~
+
+~~* [Build it](https://microsoft.github.io/AirSim/build_macos)~~
+
+> **_NOTE:_**
+> Use this fork [linda78:AirSim](https://github.com/linda78/AirSim.git)
+> 
+> Steps to do:
+>   - install clang and clang++ version 14 (better 8, but this is no longer in download)!
+>     - best with brew: 
+>       - ``/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"``
+>       - ``brew install llvm@14``
+>     - install xcode from app store in version 14.3
+>       - link it, if not done automatically: ``sudo xcode-select -s /Applications/Xcode.app/Contents/Developer``
+>       - install metal for xcode: ``xcodebuild -downloadComponent MetalToolchain``
+>  - install Epic Games latest version
+>    - in Epic Games install unreal engine 4.27!
+>  - run xcode and unreal engine
+>  - in AirSym type 
+>    - ``./setup.sh``
+>    - ``./build.sh``
+>    - ``cd Unreal/Environments/Blocks``
+>    - ``./GenerateProjectFiles.sh /Users/Shared/Epic\ Games/UE_4.27``
+
 
 For more details, see the [use precompiled binaries](docs/use_precompiled.md) document. 
 

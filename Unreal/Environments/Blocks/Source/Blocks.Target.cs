@@ -7,6 +7,12 @@ public class BlocksTarget : TargetRules
 {
 	public BlocksTarget(TargetInfo Target) : base(Target)
 	{
+        if (Target.Platform == UnrealTargetPlatform.Mac)
+        {
+            bOverrideBuildEnvironment = true;
+            AdditionalCompilerArguments = "-Wno-error -Wno-deprecated-builtins";
+        }
+        
 		Type = TargetType.Game;
 		ExtraModuleNames.AddRange(new string[] { "Blocks" });
 
